@@ -1,0 +1,3 @@
+grep -rl oldstr path | xargs sed -i 's/oldstr/newstr/g'
+find /path -type f -exec sed -i 's/oldstr/newstr/g' {} \;
+svn ci `svn st | grep ^[A\|M\|D] | awk '{print $2}'` -m "test"
