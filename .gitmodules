@@ -1,0 +1,15 @@
+[submodule "tmux_configs/.tmux"]
+	path = tmux_configs/.tmux
+	url = https://github.com/gpakosz/.tmux.git
+[submodule "tmux_configs/plugins/tpm"]
+	path = tmux_configs/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "tmux_configs/plugins/tmux-resurrect"]
+	path = tmux_configs/plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect.git
+[submodule "tmux_configs/plugins/tmux-continuum"]
+	path = tmux_configs/plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum
+[submodule "tmux_configs/plugins/tmux-yank"]
+	path = tmux_configs/plugins/tmux-yank
+	url = https://github.com/tmux-plugins/tmux-yank
