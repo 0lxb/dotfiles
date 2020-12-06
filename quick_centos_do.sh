@@ -1,8 +1,7 @@
 #!/bin/bash
 
-apt update
-apt -y upgrade
-apt -y install python3-pip
+yum update
+yum -y install python3-pip
 pip3 install https://github.com/shadowsocks/shadowsocks/archive/master.zip
 mkdir -p /etc/shadowsocks
 
