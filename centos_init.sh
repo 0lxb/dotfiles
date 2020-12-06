@@ -4,6 +4,7 @@ yum -y update
 yum -y install samba
 firewall-cmd --add-service=samba --zone=public --permanent
 firewall-cmd --reload
+setenforce 0
 smbpasswd -a root
 
 # development tools
@@ -14,7 +15,8 @@ dnf install yum-utils
 dnf install perf papi pcp-zeroconf valgrind strace sysstat systemtap
 dnf module install -y container-tools
 
-yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+# yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum-config-manager --add-repo  http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo 
 dnf install containerd.io docker-ce docker-ce-cli
 
 # git
