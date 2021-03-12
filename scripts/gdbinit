@@ -1,0 +1,11 @@
+set print pretty on
+set print elements unlimited
+set target-async 1
+set pagination off
+layout split
+fs cmd
+wh cmd 12
+target remote :1234
+set disassemble-next-line on
+show disassemble-next-line
+#add-auto-load-safe-path

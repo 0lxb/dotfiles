@@ -1,0 +1,2 @@
+mount -t 9p -o trans=virtio,version=9p2000.L hostshare /mnt
+make CROSS_COMPILE=aarch64-linux-gnu- ARCH=arm64 menuconfig

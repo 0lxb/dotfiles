@@ -1,7 +1,30 @@
+#!/bin/bash
+
+SERVER_HOME=`pwd`
+echo SERVER_HOME=$(SERVER_HOME)
+
 yum -y update
+yum -y install ctags git cscope
+yum install -y gcc gcc-c++ kernel-devel
+yum install -y pcre pcre-devel
+yum install -y zlib zlib-devel
+yum install -y openssl openssl-devel
+yum install -y vim-enhanced wget curl
+yum install -y libffi-devel
+yum install -y bzip2-devel
+yum install -y net-tools
+yum install -y sysstat #sar工具
+yum install -y psmisc #pstree工具,killall杀进程的
+yum install -y iptraf-ng #流量监控
+yum install -y bash-completion #systemctl命令补全
+
+exit 0
 
 # samba
-yum -y install samba
+#yum -y install samba
+#cp ${SERVER_HOME}/etc/samba/smb.conf /etc/samba/smb.conf
+#smbpasswd -a root
+#service smbd restart
 firewall-cmd --add-service=samba --zone=public --permanent
 firewall-cmd --reload
 setenforce 0
