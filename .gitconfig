@@ -1,0 +1,15 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Xiaobing Luo
+	email = luoxiaobing0926@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[sendemail]
+	smtpencryption = tls
+	smtpserverport = 587
+	smtpserver = smtp.gmail.com
+	smtpuser = luoxiaobing0926@gmail.com
