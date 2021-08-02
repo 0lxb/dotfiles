@@ -2,7 +2,7 @@
 # you should copy it to the astyle directory
 
 --style=kr
---indent=spaces=4
+--indent=table=4
 --indent-preprocessor
 --pad-oper
 --pad-header
