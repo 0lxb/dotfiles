@@ -1,3 +1,4 @@
+
 " begin Vundle configurations **************************************************
 
 set nocompatible              " be iMproved, required
@@ -1044,6 +1045,28 @@ if executable('pyls')
         \ 'allowlist': ['python'],
         \ })
 endif
+
+augroup LspGo
+  au!
+  autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'go-lang',
+      \ 'cmd': {server_info->['gopls']},
+      \ 'whitelist': ['go'],
+      \ })
+  autocmd FileType go setlocal omnifunc=lsp#complete
+  autocmd FileType go nmap <leader>b  <Plug>(go-build)
+  autocmd FileType go nmap <leader>r  <Plug>(go-run)
+  autocmd FileType go nmap <leader>t  <Plug>(go-test)
+  autocmd FileType go nmap <Leader>i <Plug>(go-info)
+  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
+augroup END
+let g:go_def_mapping_enabled=0
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
 
 " Register ccls C++ lanuage server.
 if executable('ccls')
