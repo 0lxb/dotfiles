@@ -13,3 +13,12 @@
 	smtpserverport = 587
 	smtpserver = smtp.gmail.com
 	smtpuser = luoxiaobing0926@gmail.com
+[color]
+	ui = auto
+[core]
+        abbrev = 12
+	editor = vim
+[pretty]
+        fixes = Fixes: %h (\"%s\")
+[format]
+	filenameMaxLength = 80
