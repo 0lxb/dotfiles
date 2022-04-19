@@ -18,6 +18,7 @@
 [core]
         abbrev = 12
 	editor = vim
+	filemode = false
 [pretty]
         fixes = Fixes: %h (\"%s\")
 [format]
