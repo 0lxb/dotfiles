@@ -1105,3 +1105,6 @@ augroup lsp_install
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
+" vimdiff wrap
+autocmd FilterWritePre * if &diff | setlocal wrap< | endif
+
