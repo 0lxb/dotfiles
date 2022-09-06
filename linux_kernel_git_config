@@ -1,0 +1,98 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[remote "linux-next"]
+	url = https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+	fetch = +refs/heads/*:refs/remotes/linux-next/*
+[branch "linux-next-master"]
+	remote = linux-next
+	merge = refs/heads/master
+[remote "stable"]
+	url = https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+	fetch = +refs/heads/*:refs/remotes/stable/*
+[branch "linux-5.10.y"]
+	remote = stable
+	merge = refs/heads/linux-5.10.y
+[branch "linux-5.15.y"]
+	remote = stable
+	merge = refs/heads/linux-5.15.y
+[remote "ubifs"]
+	url = https://git.kernel.org/pub/scm/linux/kernel/git/rw/ubifs.git
+	fetch = +refs/heads/*:refs/remotes/ubifs/*
+[branch "ubifs-master"]
+	remote = ubifs
+	merge = refs/heads/master
+[branch "ubifs-next"]
+	remote = ubifs
+	merge = refs/heads/next
+[branch "ubifs-fixes"]
+	remote = ubifs
+	merge = refs/heads/fixes
+[remote "ext4"]
+	url = https://git.kernel.org/pub/scm/linux/kernel/git/tytso/ext4.git
+	fetch = +refs/heads/*:refs/remotes/ext4/*
+[branch "ext4-master"]
+	remote = ext4
+	merge = refs/heads/master
+[branch "ext4-dev"]
+	remote = ext4
+	merge = refs/heads/dev
+[remote "f2fs"]
+	url = https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs.git
+	fetch = +refs/heads/*:refs/remotes/f2fs/*
+[branch "f2fs-master"]
+	remote = f2fs
+	merge = refs/heads/master
+[branch "f2fs-dev"]
+	remote = f2fs
+	merge = refs/heads/dev
+[remote "rockchip"]
+	url = https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git
+	fetch = +refs/heads/*:refs/remotes/linux-rochchip/*
+[branch "rockchip-for-next"]
+	remote = linux-rochchip
+	merge = refs/heads/for-next
+[remote "riscv"]
+	url = https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
+	fetch = +refs/heads/*:refs/remotes/riscv/*
+[branch "riscv-fixes"]
+	remote = riscv
+	merge = refs/heads/fixes
+[remote "loongson"]
+	url = https://git.kernel.org/pub/scm/linux/kernel/git/chenhuacai/linux-loongson.git
+	fetch = +refs/heads/*:refs/remotes/linux-loongson/*
+[branch "loongson-fixes"]
+	remote = linux-loongson
+	merge = refs/heads/loongson-fixes
+[remote "mmc"]
+	url = https://git.kernel.org/pub/scm/linux/kernel/git/ulfh/mmc.git
+	fetch = +refs/heads/*:refs/remotes/mmc/*
+[branch "mmc-next"]
+	remote = mmc
+	merge = refs/heads/next
+[remote "fscrypt"]
+	url = https://git.kernel.org/pub/scm/fs/fscrypt/fscrypt.git
+	fetch = +refs/heads/*:refs/remotes/fscrypt/*
+[branch "fscrypt-master"]
+	remote = fscrypt
+	merge = refs/heads/master
+[remote "bpf"]
+	url = https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git
+	fetch = +refs/heads/*:refs/remotes/bpf/*
+[branch "bpf-master"]
+	remote = bpf
+	merge = refs/heads/master
+[remote "bpf-next"]
+	url = https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git
+	fetch = +refs/heads/*:refs/remotes/bpf-next/*
+[branch "bpf-next-master"]
+	remote = bpf-next
+	merge = refs/heads/master
