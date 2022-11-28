@@ -6,7 +6,7 @@
 [remote "mainline"]
 	url = https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 	fetch = +refs/heads/*:refs/remotes/mainline/*
-[branch "master"]
+[branch "mainline-master"]
 	remote = mainline
 	merge = refs/heads/master
 [remote "linux-next"]
