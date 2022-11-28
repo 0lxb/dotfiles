@@ -3,11 +3,11 @@
 	filemode = true
 	bare = false
 	logallrefupdates = true
-[remote "origin"]
+[remote "mainline"]
 	url = https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
+	fetch = +refs/heads/*:refs/remotes/mainline/*
 [branch "master"]
-	remote = origin
+	remote = mainline
 	merge = refs/heads/master
 [remote "linux-next"]
 	url = https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
@@ -96,3 +96,9 @@
 [branch "bpf-next-master"]
 	remote = bpf-next
 	merge = refs/heads/master
+[remote "linux-block"]
+        url = https://git.kernel.org/pub/scm/linux/kernel/git/axboe/linux-block.git
+        fetch = +refs/heads/*:refs/remotes/linux-block/*
+[branch "linux-block-master"]
+        remote = linux-block
+        merge = refs/heads/master
