@@ -102,3 +102,33 @@
 [branch "linux-block-master"]
         remote = linux-block
         merge = refs/heads/master
+[remote "aosp"]
+	url = https://github.com/aosp-mirror/kernel_common.git
+	fetch = +refs/heads/*:refs/remotes/aosp/*
+[branch "aosp-android-mainline"]
+	remote = aosp
+	merge = refs/heads/android-mainline
+[remote "wsl2"]
+	url = https://github.com/microsoft/WSL2-Linux-Kernel.git
+	fetch = +refs/heads/*:refs/remotes/wsl2/*
+[branch "wsl2-linux-msft-wsl-5.15.y"]
+	remote = wsl2
+	merge = refs/heads/linux-msft-wsl-5.15.y
+[remote "openeuler"]
+	url = https://gitee.com/openeuler/kernel.git
+	fetch = +refs/heads/*:refs/remotes/openeuler/*
+[branch "openeuler-OLK-5.10"]
+	remote = openeuler
+	merge = refs/heads/OLK-5.10
+[remote "anolis"]
+	url = https://gitee.com/anolis/cloud-kernel.git
+	fetch = +refs/heads/*:refs/remotes/anolis/*
+[branch "anolis-devel-5.10"]
+	remote = anolis
+	merge = refs/heads/devel-5.10
+[remote "opencloudos"]
+	url = https://github.com/OpenCloudOS/OpenCloudOS-Kernel.git
+	fetch = +refs/heads/*:refs/remotes/opencloudos/*
+[branch "opencloudos-kernel5.4/master"]
+	remote = opencloudos
+	merge = refs/heads/kernel5.4/master
