@@ -79,11 +79,11 @@
 	remote = mmc
 	merge = refs/heads/next
 [remote "fscrypt"]
-	url = https://git.kernel.org/pub/scm/fs/fscrypt/fscrypt.git
+	url = https://git.kernel.org/pub/scm/fs/fscrypt/linux.git
 	fetch = +refs/heads/*:refs/remotes/fscrypt/*
-[branch "fscrypt-master"]
+[branch "fscrypt-current"]
 	remote = fscrypt
-	merge = refs/heads/master
+	merge = refs/heads/for-current
 [remote "bpf"]
 	url = https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git
 	fetch = +refs/heads/*:refs/remotes/bpf/*
@@ -102,12 +102,24 @@
 [branch "linux-block-master"]
         remote = linux-block
         merge = refs/heads/master
+[remote "linux-mm"]
+	url = https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git
+	fetch = +refs/heads/*:refs/remotes/linux-mm/*
+[branch "linux-mm-everything"]
+	remote = linux-mm
+	merge = refs/heads/mm-everything
 [remote "aosp"]
 	url = https://github.com/aosp-mirror/kernel_common.git
 	fetch = +refs/heads/*:refs/remotes/aosp/*
 [branch "aosp-android-mainline"]
 	remote = aosp
 	merge = refs/heads/android-mainline
+[branch "android14-6.1"]
+	remote = aosp
+	merge = refs/heads/android14-6.1
+[branch "android13-5.15-lts"]
+	remote = aosp
+	merge = refs/heads/android13-5.15-lts
 [remote "wsl2"]
 	url = https://github.com/microsoft/WSL2-Linux-Kernel.git
 	fetch = +refs/heads/*:refs/remotes/wsl2/*
@@ -132,3 +144,15 @@
 [branch "opencloudos-kernel5.4/master"]
 	remote = opencloudos
 	merge = refs/heads/kernel5.4/master
+[remote "raspberrypi"]
+	url = https://github.com/raspberrypi/linux.git
+	fetch = +refs/heads/*:refs/remotes/raspberrypi/*
+[branch "rpi-6.1.y"]
+	remote = raspberrypi
+	merge = refs/heads/rpi-6.1.y
+[remote "velinux"]
+	url = https://github.com/bytedance/kernel.git
+	fetch = +refs/heads/*:refs/remotes/velinux/*
+[branch "5.4.143-velinux"]
+	remote = velinux
+	merge = refs/heads/5.4.143-velinux
