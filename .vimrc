@@ -26,6 +26,11 @@ Plugin 'tpope/vim-unimpaired'
 " vim lsp
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'mattn/vim-lsp-settings'
+if !has('nvim')
+        Plugin 'rhysd/vim-healthcheck'
+endif
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plugin 'Yggdroot/indentLine'
 Plugin 'Raimondi/delimitMate'
@@ -92,6 +97,7 @@ endif
 
 syntax enable
 syntax on
+set re=2
 set number
 set relativenumber
 " set mouse+=a
@@ -1037,6 +1043,7 @@ let g:airline#extensions#tabline#enabled = 1
 " end python config
 
 " lsp
+" Register pyls python lanuage server.
 if executable('pyls')
     " pip install python-language-server
     au User lsp_setup call lsp#register_server({
@@ -1046,6 +1053,7 @@ if executable('pyls')
         \ })
 endif
 
+" Register pyls golang lanuage server.
 augroup LspGo
   au!
   autocmd User lsp_setup call lsp#register_server({
@@ -1079,9 +1087,21 @@ if executable('ccls')
       \ })
 endif
 
+" Register clangd C/C++ lanuage server.
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd', '-background-index']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif
+
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
+    if exists('+tagfunc')
+        setlocal tagfunc=lsp#tagfunc
+    endif
     nmap <buffer> gd <plug>(lsp-definition)
     nmap <buffer> gs <plug>(lsp-document-symbol-search)
     nmap <buffer> gws <plug>(lsp-workspace-symbol-search)
@@ -1099,11 +1119,21 @@ function! s:on_lsp_buffer_enabled() abort
     autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
 endfunction
 
+    set foldmethod=expr
+      \ foldexpr=lsp#ui#vim#folding#foldexpr()
+      \ foldtext=lsp#ui#vim#folding#foldtext()
+
 augroup lsp_install
     au!
     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
+
+"let g:lsp_log_verbose = 0
+"let g:lsp_log_file = expand('~/vim-log/vim-lsp.log')
+"
+"" for asyncomplete.vim log
+"let g:asyncomplete_log_file = expand('~/vim-log/asyncomplete.log')
 
 " vimdiff wrap
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif

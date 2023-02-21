@@ -3,6 +3,12 @@
 	filemode = true
 	bare = false
 	logallrefupdates = true
+[remote "origin"]
+	url = git@github.com:0lxb/linux.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
 [remote "mainline"]
 	url = https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 	fetch = +refs/heads/*:refs/remotes/mainline/*
@@ -156,3 +162,9 @@
 [branch "5.4.143-velinux"]
 	remote = velinux
 	merge = refs/heads/5.4.143-velinux
+[remote "photon-linux"]
+        url = https://gitee.com/kernelsoft/photon-linux.git
+        fetch = +refs/heads/*:refs/remotes/photon-linux/*
+[branch "photon-linux-master"]
+        remote = photon-linux
+        merge = refs/heads/master
