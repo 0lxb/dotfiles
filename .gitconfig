@@ -23,3 +23,10 @@
         fixes = Fixes: %h (\"%s\")
 [format]
 	filenameMaxLength = 80
+[alias]
+	dc = describe --contains
+	fp = format-patch -k -M -N
+	b = branch -v
+	ll = log --oneline
+	last = log -1 HEAD --stat
+	st = status -sb
