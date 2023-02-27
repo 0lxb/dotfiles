@@ -4,88 +4,86 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Install vim-plug if we don't already have it
+if empty(glob('~/.vim/autoload/plug.vim'))
+silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-Plugin 'kshenoy/vim-signature'
+Plug 'honza/vim-snippets'
+Plug 'kshenoy/vim-signature'
 
-Plugin 'tpope/vim-repeat'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 
-" vim lsp
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'mattn/vim-lsp-settings'
-if !has('nvim')
-        Plugin 'rhysd/vim-healthcheck'
-endif
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+"" vim lsp
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'mattn/vim-lsp-settings'
+"if !has('nvim')
+"        Plug 'rhysd/vim-healthcheck'
+"endif
+"Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
-Plugin 'Yggdroot/indentLine'
-Plugin 'Raimondi/delimitMate'
-Plugin 'fholgado/minibufexpl.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'Lokaltog/powerline'
-Plugin 'xuhdev/SingleCompile'
-Plugin 'ervandew/supertab'
-Plugin 'majutsushi/tagbar'
-Plugin 'wincent/command-t'
+Plug 'Yggdroot/indentLine'
+Plug 'Raimondi/delimitMate'
+Plug 'fholgado/minibufexpl.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'Lokaltog/powerline'
+Plug 'xuhdev/SingleCompile'
+Plug 'majutsushi/tagbar'
+Plug 'wincent/command-t'
 
-Plugin 'scrooloose/vim-slumlord'
-Plugin 'aklt/plantuml-syntax'
-Plugin 'elzr/vim-json'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'autoload_cscope.vim'
+Plug 'scrooloose/vim-slumlord'
+Plug 'aklt/plantuml-syntax'
+Plug 'elzr/vim-json'
+Plug 'Chiel92/vim-autoformat'
 
-Plugin 'DoxygenToolkit.vim'
-Plugin 'rainbow_parentheses.vim'
-Plugin 'taglist.vim'
-Plugin 'xterm-color-table.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'Yggdroot/LeaderF'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'w0rp/ale'
-Plugin 'vivien/vim-linux-coding-style'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/vim-easy-align'
+Plug 'Yggdroot/LeaderF'
+Plug 'altercation/vim-colors-solarized'
+Plug 'flazz/vim-colorschemes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'
+Plug 'vivien/vim-linux-coding-style'
 
 " golang
-Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " python
-Plugin 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'mitsuhiko/vim-python-combined'
-Plugin 'mitsuhiko/vim-jinja'
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'nvie/vim-flake8'
-Plugin 'davidhalter/jedi-vim'
+Plug 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'mitsuhiko/vim-python-combined'
+Plug 'mitsuhiko/vim-jinja'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'nvie/vim-flake8'
+Plug 'davidhalter/jedi-vim'
+Plug 'kergoth/vim-bitbake'
 
 " fzf
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " markdown
-Plugin 'mzlogin/vim-markdown-toc'
-Plugin 'plasticboy/vim-markdown'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'plasticboy/vim-markdown'
 
+Plug 'iberianpig/tig-explorer.vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+" All of your Plugs must be added before the following line
+call plug#end()            " required
 filetype plugin on    " required
 filetype plugin indent on    " required
 " end Vundle configurations *******************************************************
@@ -753,24 +751,6 @@ nnoremap <leader>o :YcmCompleter GoToInclude<cr>
 nnoremap <leader>ff :YcmCompleter FixIt<cr>
 nmap <F9> :YcmDiags<cr>
 
-" make Rainbow work
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-" DoxygenToolkit
-let g:DoxygenToolkit_commentType = "C++"
-let g:DoxygenToolkit_briefTag_pre="@brief  "
-let g:DoxygenToolkit_paramTag_pre="@param  "
-let g:DoxygenToolkit_returnTag="@return  "
-let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
-let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
-let g:DoxygenToolkit_authorName="0lxb"
-
-
 """"""""""""""""""""""""""""""
 "Leaderf settings
 """"""""""""""""""""""""""""""
@@ -804,7 +784,6 @@ let g:Lf_WildIgnore = {
             \ 'dir': ['.svn','.git','.hg','.vscode','.wine','.deepinwine','.oh-my-zsh'],
             \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
             \}
-
 
 set cscopequickfix=
 "map <F12> :!Cscope <CR>
@@ -1043,6 +1022,14 @@ let g:airline#extensions#tabline#enabled = 1
 " end python config
 
 " lsp
+if executable('bash-language-server')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'bash-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
+        \ 'allowlist': ['sh'],
+        \ })
+endif
+
 " Register pyls python lanuage server.
 if executable('pyls')
     " pip install python-language-server
@@ -1054,20 +1041,18 @@ if executable('pyls')
 endif
 
 " Register pyls golang lanuage server.
-augroup LspGo
-  au!
-  autocmd User lsp_setup call lsp#register_server({
+if executable('gopls')
+  au User lsp_setup call lsp#register_server({
       \ 'name': 'go-lang',
       \ 'cmd': {server_info->['gopls']},
       \ 'whitelist': ['go'],
       \ })
-  autocmd FileType go setlocal omnifunc=lsp#complete
   autocmd FileType go nmap <leader>b  <Plug>(go-build)
   autocmd FileType go nmap <leader>r  <Plug>(go-run)
   autocmd FileType go nmap <leader>t  <Plug>(go-test)
   autocmd FileType go nmap <Leader>i <Plug>(go-info)
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
-augroup END
+endif
 let g:go_def_mapping_enabled=0
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -1119,10 +1104,6 @@ function! s:on_lsp_buffer_enabled() abort
     autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
 endfunction
 
-    set foldmethod=expr
-      \ foldexpr=lsp#ui#vim#folding#foldexpr()
-      \ foldtext=lsp#ui#vim#folding#foldtext()
-
 augroup lsp_install
     au!
     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
@@ -1135,6 +1116,40 @@ augroup END
 "" for asyncomplete.vim log
 "let g:asyncomplete_log_file = expand('~/vim-log/asyncomplete.log')
 
+" complete
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+" For Vim 8 (<c-@> corresponds to <c-space>):
+" imap <c-@> <Plug>(asyncomplete_force_refresh)
+
 " vimdiff wrap
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
+
+" tig
+" open tig with current file
+nnoremap <Leader>T :TigOpenCurrentFile<CR>
+
+" open tig with Project root path
+nnoremap <Leader>t :TigOpenProjectRootDir<CR>
+
+" open tig grep
+nnoremap <Leader>g :TigGrep<CR>
+
+" resume from last grep
+nnoremap <Leader>r :TigGrepResume<CR>
+
+" open tig grep with the selected word
+vnoremap <Leader>g y:TigGrep<Space><C-R>"<CR>
+
+" open tig grep with the word under the cursor
+nnoremap <Leader>cg :<C-u>:TigGrep<Space><C-R><C-W><CR>
+
+" open tig blame with current file
+nnoremap <Leader>b :TigBlame<CR>
+
+" don't use builtin terminal
+let g:tig_explorer_use_builtin_term=0
 
