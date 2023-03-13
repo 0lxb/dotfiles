@@ -13,3 +13,6 @@
 [submodule "tmux_configs/plugins/tmux-yank"]
 	path = tmux_configs/plugins/tmux-yank
 	url = https://github.com/tmux-plugins/tmux-yank
+[submodule "nvim/nvimdots"]
+	path = nvim/nvimdots
+	url = https://github.com/0lxb/nvimdots.git

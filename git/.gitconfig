@@ -30,9 +30,5 @@
 	ll = log --oneline
 	last = log -1 HEAD --stat
 	st = status -sb
-[http]
-	proxy = socks5h://127.0.0.1:1080
-[https]
-	proxy = socks5h://127.0.0.1:1080
 [pull]
 	rebase = false
