@@ -7,6 +7,13 @@ git submodule update --init --recursive
 ```
 ### .vimrc
 
+```
+mkdir ~/.vim
+mkdir ~/.vim/autoload/
+
+cp -rf vim/.vimrc ~/
+cp -rf vim/plug.vim ~/.vim/autoload/
+```
 ### nvim
 
 * dependency
@@ -22,4 +29,8 @@ git clone https://github.com/0lxb/nvimdots.git ${HOME}/.config/nvim
 ```
 cd tmux_configs
 sh install_tmux_configs.sh
+```
+### git
+```
+cp .gitconfig ~/
 ```
