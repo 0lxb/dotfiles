@@ -1,0 +1,37 @@
+# ================  IMAP ====================
+set imap_user = "luoxiaobing0926@gmail.com"
+set spoolfile = "imaps://imap.gmail.com/INBOX"
+set folder = "imaps://imap.gmail.com/"
+set record="imaps://imap.gmail.com/[Gmail]/Sent%20Mail"
+set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
+set mbox="imaps://imap.gmail.com/[Gmail]/All%20Mail"
+set trash="imaps://imap.gmail.com/[Gmail]/Trash"
+
+# ================  SMTP  ====================
+set smtp_url = "smtp://username@smtp.gmail.com:587/"
+set ssl_force_tls = yes # Require encrypted connection
+
+# ================  Composition  ====================
+set editor = vim
+set edit_headers = yes  # See the headers when editing
+set charset = UTF-8     # value of $LANG; also fallback for send_charset
+# Sender, email address, and sign-off line must match
+unset use_domain        # because joe@localhost is just embarrassing
+set realname = "Xiaobing Luo"
+set from = "luoxiaobing0926@gmail.com"
+set use_from = yes
+
+# ================  Key  ====================
+bind editor <space> noop
+bind generic             gg        first-entry
+bind generic,index       G         last-entry
+bind pager               gg        top
+bind pager               G         bottom
+
+macro index,pager y "<save-message>=[Gmail]/All%20Mail<enter><enter>" "Archive"
+macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All%20Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+
