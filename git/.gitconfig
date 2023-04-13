@@ -13,6 +13,9 @@
 	smtpserverport = 587
 	smtpserver = smtp.gmail.com
 	smtpuser = luoxiaobing0926@gmail.com
+[sendemail.linux]
+	tocmd = "scripts/get_maintainer.pl --nogit --nogit-fallback --norolestats --nol"
+	cccmd = "scripts/get_maintainer.pl --nogit --nogit-fallback --norolestats --nom"
 [color]
 	ui = auto
 [core]
