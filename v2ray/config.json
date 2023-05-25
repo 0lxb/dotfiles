@@ -1,0 +1,53 @@
+{
+"inbounds": [
+    // Shadowsocks inbound
+    {
+        "protocol": "shadowsocks",
+        "listen": "xx.xx.xx.xx",
+        "port": 8987,
+        "settings": {
+            "method":"chacha20-ietf-poly1305",
+            "password":"xxx",
+            "network": "tcp,udp"
+        }
+    },
+    // V2Ray inbound
+    {
+        "port": 8687,
+        "listen": "xx.xx.xx.xx",
+        "protocol": "vmess",
+        "settings": {
+            "clients": []
+        },
+        "tag": "in-0",
+        "streamSettings": {
+            "network": "tcp",
+            "security": "auto",
+            "tcpSettings": {}
+        }
+    }
+],
+ "outbounds": [
+{
+  "protocol": "socks",
+  "settings": {
+	"servers": [
+	  {
+		"address": "127.0.0.1",
+		"port": 64646
+	  }
+	]
+  }
+},
+{
+  "tag": "direct",
+  "protocol": "freedom",
+  "settings": {}
+},
+{
+  "tag": "blocked",
+  "protocol": "blackhole",
+  "settings": {}
+}
+ ]
+}
